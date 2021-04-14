@@ -14,6 +14,7 @@ function App() {
         onChange={(e) => setText(e.target.value)}
         value={text}
         className={`border-black border-[1px] mt-5 resize-y rounded-lg md:w-1/2 p-2 focus:outline-none h-60 sm:w-2/3 w-3/4`}
+        aria-label="Tekst input"
       />
       {count > 0 && (
         <div className={`mt-3`}>
@@ -25,7 +26,7 @@ function App() {
       <div>
         <button
           onClick={() => setText('')}
-          className={`p-2 px-4 text-gray-100 bg-indigo-500 rounded-md focus:outline-none hover:bg-indigo-600 mt-3`}
+          className={`p-2 px-4 text-gray-50 bg-blue-700 rounded-md focus:outline-none hover:bg-blue-600 mt-3`}
         >
           Nulstil
         </button>
