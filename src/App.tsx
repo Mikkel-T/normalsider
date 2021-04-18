@@ -4,7 +4,7 @@ function App() {
   const [text, setText] = useState<string>('');
   const [count, setCount] = useState<number>(0);
   useEffect(() => {
-    const arr = text.match(/[a-zA-ZÆæØøÅå0-9]/g);
+    const arr = text.match(/[A-ZÀ-ÚÄ-Ü0-9]/gi);
     setCount(arr ? arr.length : 0);
   }, [text]);
 
@@ -35,10 +35,6 @@ function App() {
       </main>
       <footer className={`mt-1`}>
         <p>
-          Normalsider bliver beregnet ved at dividere antal bogstaver og tal i
-          teksten med 1300
-        </p>
-        <p>
           <a
             href="https://github.com/Mikkel-T/normalsider"
             className={`text-blue-600 hover:text-blue-800`}
@@ -56,6 +52,10 @@ function App() {
           >
             Mikkel Tønder
           </a>
+        </p>
+        <p className={`text-gray-600 text-sm`}>
+          Programmet beregner antal normalsider ved at dividere antal bogstaver
+          og tal i teksten med 1300
         </p>
       </footer>
     </div>
