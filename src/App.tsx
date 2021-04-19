@@ -53,7 +53,7 @@ function App() {
             Mikkel Tønder
           </a>
         </p>
-        <p className={`text-gray-600 text-sm`}>
+        <p className={`text-gray-600 text-sm mb-4`}>
           Programmet beregner antal normalsider ved at dividere antal bogstaver
           og tal i teksten med 1300
         </p>
