@@ -14,15 +14,15 @@ function App() {
         <textarea
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className={`border-black border-[1px] mt-5 resize-y rounded-lg md:w-1/2 p-2 focus:outline-none h-60 sm:w-2/3 w-3/4`}
+          className={`border-black border mt-5 resize-y rounded-lg md:w-1/2 p-2 focus:outline-none h-60 sm:w-2/3 w-3/4 mb-2`}
           aria-label="Tekst input"
         />
+        {text && <div>Antal tegn: {text.length}</div>}
         {count > 0 && (
-          <div className={`mt-3`}>
-            <div>Antal tegn: {text.length}</div>
-            <div>Antal bogstaver: {count}</div>
+          <>
+            <div>Antal bogstaver og tal: {count}</div>
             <div>Normalsider: {count / 1300}</div>
-          </div>
+          </>
         )}
         <div>
           <button
@@ -33,7 +33,7 @@ function App() {
           </button>
         </div>
       </main>
-      <footer className={`mt-1`}>
+      <footer className={`mt-1 mx-4`}>
         <p>
           <a
             href="https://github.com/Mikkel-T/normalsider"
