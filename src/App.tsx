@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Link from './Link';
 
 function App() {
   const [text, setText] = useState<string>('');
@@ -9,12 +10,12 @@ function App() {
   }, [text]);
 
   return (
-    <div className={`text-center`}>
+    <div className="text-center">
       <main>
         <textarea
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className={`border-black border mt-5 resize-y rounded-lg md:w-1/2 p-2 focus:outline-none h-60 sm:w-2/3 w-3/4 mb-2`}
+          className="border-black border mt-5 resize-y rounded-lg md:w-1/2 p-2 focus:outline-none h-60 sm:w-2/3 w-3/4 mb-2"
           aria-label="Tekst input"
         />
         {text && <div>Antal tegn: {text.length}</div>}
@@ -27,35 +28,31 @@ function App() {
         <div>
           <button
             onClick={() => setText('')}
-            className={`p-2 px-4 text-gray-50 bg-blue-700 rounded-md focus:outline-none hover:bg-blue-600 mt-3 focus:bg-blue-600`}
+            className="p-2 px-4 text-gray-50 bg-blue-700 rounded-md focus:outline-none hover:bg-blue-600 mt-3 focus:bg-blue-600"
           >
             Nulstil
           </button>
         </div>
       </main>
-      <footer className={`mt-1 mx-4`}>
+      <footer className="mt-1 mx-4">
         <p>
-          <a
+          <Link
             href="https://github.com/Mikkel-T/normalsider"
-            className={`text-blue-600 hover:text-blue-800`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Open source
-          </a>{' '}
+            text="Open source"
+          />{' '}
           projekt lavet af{' '}
-          <a
-            href="https://github.com/Mikkel-T"
-            className={`text-blue-600 hover:text-blue-800`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Mikkel Tønder
-          </a>
+          <Link href="https://mikkel-t.com" text="Mikkel Tønder" />
         </p>
-        <p className={`text-gray-600 text-sm mb-4`}>
+        <p className="text-gray-600 text-sm mb-4">
           Programmet beregner antal normalsider ved at dividere antal bogstaver
-          og tal i teksten med 1300
+          og tal i teksten med 1300.
+          <br />
+          Hvis du finder en fejl, må du meget gerne rapportere den{' '}
+          <Link
+            href="https://github.com/Mikkel-T/normalsider/issues/new"
+            text="her"
+          />
+          .
         </p>
       </footer>
     </div>
