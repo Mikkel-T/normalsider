@@ -15,7 +15,7 @@ function App() {
         <textarea
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className="border-black border mt-5 resize-y rounded-lg md:w-1/2 p-2 focus:outline-none h-60 sm:w-2/3 w-3/4 mb-2"
+          className="md:w-1/2 focus:outline-none h-60 sm:w-2/3 w-3/4 p-2 mt-5 mb-2 border border-black rounded-lg resize-y"
           aria-label="Tekst input"
         />
         {text && <div>Antal tegn: {text.length}</div>}
@@ -28,13 +28,13 @@ function App() {
         <div>
           <button
             onClick={() => setText('')}
-            className="p-2 px-4 text-gray-50 bg-blue-700 rounded-md focus:outline-none hover:bg-blue-600 mt-3 focus:bg-blue-600"
+            className="text-gray-50 focus:outline-none hover:bg-blue-600 focus:bg-blue-600 p-2 px-4 mt-3 bg-blue-700 rounded-md"
           >
             Nulstil
           </button>
         </div>
       </main>
-      <footer className="mt-1 mx-4">
+      <footer className="mx-4 mt-1">
         <p>
           <Link
             href="https://github.com/Mikkel-T/normalsider"
@@ -43,7 +43,7 @@ function App() {
           projekt lavet af{' '}
           <Link href="https://mikkel-t.com" text="Mikkel Tønder" />
         </p>
-        <p className="text-gray-600 text-sm mb-4">
+        <p className="mb-4 text-sm text-gray-600">
           Programmet beregner antal normalsider ved at dividere antal bogstaver
           og tal i teksten med 1300.
           <br />
