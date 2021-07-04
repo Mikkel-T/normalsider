@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/solid';
 import Link from './Link';
 
 function App() {
   const [text, setText] = useState<string>('');
   const [count, setCount] = useState<number>(0);
+  const [charsPerPage, setCharsPerPage] = useState<number | string>(1300);
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+  useEffect(() => {
+    const chars = localStorage.getItem('charsPerPage');
+    if (chars) {
+      setCharsPerPage(+chars);
+    }
+  }, []);
+
   useEffect(() => {
     const arr = text.match(/[A-ZÀ-ÚÄ-Ü0-9]/gi);
     setCount(arr ? arr.length : 0);
@@ -22,9 +32,42 @@ function App() {
         {count > 0 && (
           <>
             <div>Antal bogstaver og tal: {count}</div>
-            <div>Normalsider: {count / 1300}</div>
+            <div>
+              Normalsider:{' '}
+              {(charsPerPage && count / +charsPerPage) ||
+                'Ikke beregnet da indstillingen "Antal bogstaver per normalside" er tom'}
+            </div>
           </>
         )}
+        <div>
+          <div
+            onClick={() => setSettingsOpen(!settingsOpen)}
+            className="inline-block font-bold align-middle cursor-pointer select-none"
+          >
+            {settingsOpen ? (
+              <ChevronDownIcon className="inline-block w-5 h-5 align-middle" />
+            ) : (
+              <ChevronRightIcon className="inline-block w-5 h-5 align-middle" />
+            )}
+            Indstillinger
+          </div>
+          {settingsOpen && (
+            <div>
+              <div>
+                <p>Antal bogstaver per normalside:</p>
+                <input
+                  onChange={(e) => {
+                    setCharsPerPage(e.target.value);
+                    localStorage.setItem('charsPerPage', e.target.value);
+                  }}
+                  type="number"
+                  value={charsPerPage}
+                  className="focus:border-gray-500 p-2 border rounded-md outline-none"
+                />
+              </div>
+            </div>
+          )}
+        </div>
         <div>
           <button
             onClick={() => setText('')}
@@ -45,7 +88,7 @@ function App() {
         </p>
         <p className="mb-4 text-sm text-gray-600">
           Programmet beregner antal normalsider ved at dividere antal bogstaver
-          og tal i teksten med 1300.
+          og tal i teksten med {charsPerPage}.
           <br />
           Hvis du finder en fejl, må du meget gerne rapportere den{' '}
           <Link
