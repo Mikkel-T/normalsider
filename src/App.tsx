@@ -1,23 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import CharsToCount from './settings/CharsToCount';
 import Link from './Link';
 
 function App() {
   const [text, setText] = useState<string>('');
   const [count, setCount] = useState<number>(0);
   const [charsPerPage, setCharsPerPage] = useState<number | string>(1300);
+  const [charsToCount, setCharsToCount] = useState<Record<string, boolean>>({
+    bogstaver: true,
+    tal: true,
+    mellemrum: false,
+    andre: false,
+  });
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
   useEffect(() => {
     const chars = localStorage.getItem('charsPerPage');
-    if (chars) {
-      setCharsPerPage(+chars);
-    }
+    if (chars) setCharsPerPage(+chars);
+    const toCount = localStorage.getItem('charsToCount');
+    if (toCount) setCharsToCount(JSON.parse(toCount));
   }, []);
 
   useEffect(() => {
-    const arr = text.match(/[A-ZÀ-ÚÄ-Ü0-9]/gi);
-    setCount(arr ? arr.length : 0);
-  }, [text]);
+    let num = 0;
+    if (charsToCount.bogstaver) num += text.match(/[A-ZÀ-ÚÄ-Ü]/gi)?.length || 0;
+    if (charsToCount.tal) num += text.match(/[0-9]/gi)?.length || 0;
+    if (charsToCount.mellemrum) num += text.match(/[ ]/gi)?.length || 0;
+    if (charsToCount.andre)
+      num += text.match(/[^A-ZÀ-ÚÄ-Ü0-9 ]/gi)?.length || 0;
+    setCount(num);
+  }, [text, charsPerPage, charsToCount]);
 
   return (
     <div className="text-center">
@@ -31,7 +43,7 @@ function App() {
         {text && <div>Antal tegn: {text.length}</div>}
         {count > 0 && (
           <>
-            <div>Antal bogstaver og tal: {count}</div>
+            <div>Antal talte tegn: {count}</div>
             <div>
               Normalsider:{' '}
               {(charsPerPage && count / +charsPerPage) ||
@@ -54,7 +66,38 @@ function App() {
           {settingsOpen && (
             <div>
               <div>
-                <p>Antal bogstaver per normalside:</p>
+                <p className="font-semibold">
+                  Vælg hvilke slags tegn der skal tælles med:
+                </p>
+                <CharsToCount
+                  name="bogstaver"
+                  title="Bogstaver"
+                  onChange={setCharsToCount}
+                  state={charsToCount}
+                />
+                <CharsToCount
+                  name="tal"
+                  title="Tal"
+                  onChange={setCharsToCount}
+                  state={charsToCount}
+                />
+                <CharsToCount
+                  name="mellemrum"
+                  title="Mellemrum"
+                  onChange={setCharsToCount}
+                  state={charsToCount}
+                />
+                <CharsToCount
+                  name="andre"
+                  title="Alle andre tegn"
+                  onChange={setCharsToCount}
+                  state={charsToCount}
+                />
+              </div>
+              <div>
+                <p className="font-semibold">
+                  Antal talte tegn per normalside:
+                </p>
                 <input
                   onChange={(e) => {
                     setCharsPerPage(e.target.value);
@@ -87,8 +130,8 @@ function App() {
           <Link href="https://mikkel-t.com" text="Mikkel Tønder" />
         </p>
         <p className="mb-4 text-sm text-gray-600">
-          Programmet beregner antal normalsider ved at dividere antal bogstaver
-          og tal i teksten med {charsPerPage}.
+          Programmet beregner antal normalsider ved at dividere antal tegn der
+          tælles med (Kan sættes i indstillinger) i teksten med {charsPerPage}.
           <br />
           Hvis du finder en fejl, må du meget gerne rapportere den{' '}
           <Link
