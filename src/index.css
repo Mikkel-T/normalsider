@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  .toggle:hover div {
+    @apply ring-8;
+  }
+}
