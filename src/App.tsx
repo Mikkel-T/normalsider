@@ -78,6 +78,7 @@ function App() {
                 </p>
                 {Object.keys(charsToCount).map((i) => (
                   <CharsToCount
+                    key={i}
                     name={i}
                     title={
                       i !== 'andre'
