@@ -3,6 +3,7 @@ import {
   ChevronRightIcon,
   RefreshIcon,
 } from '@heroicons/react/solid';
+import classNames from 'classnames';
 import React, { useEffect, useState } from 'react';
 
 import Link from './Link';
@@ -38,12 +39,14 @@ function App() {
   }, [text, charsPerPage, charsToCount]);
 
   return (
-    <div className="text-center">
+    <div className={classNames('text-center')}>
       <main>
         <textarea
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className="md:w-1/2 focus:outline-none h-60 sm:w-2/3 w-3/4 p-2 mt-5 mb-2 border border-black rounded-lg resize-y"
+          className={classNames(
+            'md:w-1/2 focus:outline-none h-60 sm:w-2/3 w-3/4 p-2 mt-5 mb-2 border border-black rounded-lg resize-y'
+          )}
           aria-label="Tekst input"
         />
         {text && <div>Antal tegn: {text.length}</div>}
@@ -60,20 +63,30 @@ function App() {
         <div>
           <div
             onClick={() => setSettingsOpen(!settingsOpen)}
-            className="inline-block font-bold align-middle cursor-pointer select-none"
+            className={classNames(
+              'inline-block font-bold align-middle cursor-pointer select-none'
+            )}
           >
             {settingsOpen ? (
-              <ChevronDownIcon className="inline-block w-5 h-5 align-middle" />
+              <ChevronDownIcon
+                className={classNames('inline-block w-5 h-5 align-middle')}
+              />
             ) : (
-              <ChevronRightIcon className="inline-block w-5 h-5 align-middle" />
+              <ChevronRightIcon
+                className={classNames('inline-block w-5 h-5 align-middle')}
+              />
             )}
             Indstillinger
           </div>
           <br />
           {settingsOpen && (
-            <div className="rounded-xl px-7 inline-block p-1 bg-gray-100">
-              <div className="my-2">
-                <p className="font-semibold">
+            <div
+              className={classNames(
+                'rounded-xl px-7 inline-block p-1 bg-gray-100'
+              )}
+            >
+              <div className={classNames('my-2')}>
+                <p className={classNames('font-semibold')}>
                   Vælg hvilke slags tegn der skal tælles med:
                 </p>
                 {Object.keys(charsToCount).map((i) => (
@@ -90,8 +103,8 @@ function App() {
                   />
                 ))}
               </div>
-              <div className="my-2">
-                <p className="font-semibold">
+              <div className={classNames('my-2')}>
+                <p className={classNames('font-semibold')}>
                   Antal talte tegn per normalside:
                 </p>
                 <input
@@ -101,10 +114,12 @@ function App() {
                   }}
                   type="number"
                   value={charsPerPage}
-                  className="focus:border-gray-500 p-2 border rounded-md outline-none"
+                  className={classNames(
+                    'focus:border-gray-500 p-2 border rounded-md outline-none'
+                  )}
                 />
               </div>
-              <div className="my-2">
+              <div className={classNames('my-2')}>
                 <button
                   onClick={() => {
                     setCharsToCount({
@@ -116,9 +131,13 @@ function App() {
                     setCharsPerPage(1300);
                     localStorage.clear();
                   }}
-                  className="text-gray-50 focus:outline-none hover:bg-red-500 focus:bg-red-500 p-2 px-2 mt-3 bg-red-600 rounded-md"
+                  className={classNames(
+                    'text-gray-50 focus:outline-none hover:bg-red-500 focus:bg-red-500 p-2 px-2 mt-3 bg-red-600 rounded-md'
+                  )}
                 >
-                  <RefreshIcon className="inline-block w-5 h-5 mr-1" />
+                  <RefreshIcon
+                    className={classNames('inline-block w-5 h-5 mr-1')}
+                  />
                   Nulstil indstillinger
                 </button>
               </div>
@@ -128,13 +147,15 @@ function App() {
         <div>
           <button
             onClick={() => setText('')}
-            className="text-gray-50 focus:outline-none hover:bg-blue-600 focus:bg-blue-600 p-2 px-4 mt-3 bg-blue-700 rounded-md"
+            className={classNames(
+              'text-gray-50 focus:outline-none hover:bg-blue-600 focus:bg-blue-600 p-2 px-4 mt-3 bg-blue-700 rounded-md'
+            )}
           >
             Ryd tekstfelt
           </button>
         </div>
       </main>
-      <footer className="mx-4 mt-1">
+      <footer className={classNames('mx-4 mt-1')}>
         <p>
           <Link
             href="https://github.com/Mikkel-T/normalsider"
@@ -143,7 +164,7 @@ function App() {
           projekt lavet af{' '}
           <Link href="https://mikkel-t.com" text="Mikkel Tønder" />
         </p>
-        <p className="mb-4 text-sm text-gray-600">
+        <p className={classNames('mb-4 text-sm text-gray-600')}>
           Programmet beregner antal normalsider ved at dividere antal tegn der
           tælles med i teksten (Kan sættes i indstillinger) med {charsPerPage}.
           <br />
