@@ -3,7 +3,6 @@ import {
   ChevronRightIcon,
   RefreshIcon,
 } from '@heroicons/react/solid';
-import classNames from 'classnames';
 import React, { useState } from 'react';
 
 import CharsToCount from './Toggle';
@@ -25,28 +24,20 @@ export default function Settings({
     <div>
       <div
         onClick={() => setSettingsOpen(!settingsOpen)}
-        className={classNames(
-          'inline-block font-bold align-middle cursor-pointer select-none'
-        )}
+        className="inline-block font-bold align-middle cursor-pointer select-none"
       >
         {settingsOpen ? (
-          <ChevronDownIcon
-            className={classNames('inline-block w-5 h-5 align-middle')}
-          />
+          <ChevronDownIcon className="inline-block w-5 h-5 align-middle" />
         ) : (
-          <ChevronRightIcon
-            className={classNames('inline-block w-5 h-5 align-middle')}
-          />
+          <ChevronRightIcon className="inline-block w-5 h-5 align-middle" />
         )}
         Indstillinger
       </div>
       <br />
       {settingsOpen && (
-        <div
-          className={classNames('rounded-xl px-7 inline-block p-1 bg-gray-100')}
-        >
-          <div className={classNames('my-2')}>
-            <p className={classNames('font-semibold')}>
+        <div className="inline-block p-1 px-7 bg-gray-100 rounded-xl">
+          <div className="my-2">
+            <p className="font-semibold">
               Vælg hvilke slags tegn der skal tælles med:
             </p>
             {Object.keys(charsToCount).map((i) => (
@@ -63,10 +54,8 @@ export default function Settings({
               />
             ))}
           </div>
-          <div className={classNames('my-2')}>
-            <p className={classNames('font-semibold')}>
-              Antal talte tegn per normalside:
-            </p>
+          <div className="my-2">
+            <p className="font-semibold">Antal talte tegn per normalside:</p>
             <input
               onChange={(e) => {
                 setCharsPerPage(e.target.value);
@@ -74,12 +63,10 @@ export default function Settings({
               }}
               type="number"
               value={charsPerPage}
-              className={classNames(
-                'focus:border-gray-500 p-2 border rounded-md outline-none'
-              )}
+              className="p-2 rounded-md border outline-none focus:border-gray-500"
             />
           </div>
-          <div className={classNames('my-2')}>
+          <div className="my-2">
             <button
               onClick={() => {
                 setCharsToCount({
@@ -91,13 +78,9 @@ export default function Settings({
                 setCharsPerPage(1300);
                 localStorage.clear();
               }}
-              className={classNames(
-                'text-gray-50 focus:outline-none hover:bg-red-500 focus:bg-red-500 p-2 px-2 mt-3 bg-red-600 rounded-md'
-              )}
+              className="p-2 px-2 mt-3 text-gray-50 bg-red-600 rounded-md hover:bg-red-500 focus:bg-red-500 focus:outline-none"
             >
-              <RefreshIcon
-                className={classNames('inline-block w-5 h-5 mr-1')}
-              />
+              <RefreshIcon className="inline-block mr-1 w-5 h-5" />
               Nulstil indstillinger
             </button>
           </div>

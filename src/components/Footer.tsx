@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React from 'react';
 
 import Link from './Link';
@@ -9,7 +8,7 @@ export default function Footer({
   charsPerPage: string | number;
 }) {
   return (
-    <footer className={classNames('mx-4 mt-1')}>
+    <footer className="mx-4 mt-1">
       <p>
         <Link
           href="https://github.com/Mikkel-T/normalsider"
@@ -18,7 +17,7 @@ export default function Footer({
         projekt lavet af{' '}
         <Link href="https://mikkel-t.com" text="Mikkel Tønder" />
       </p>
-      <p className={classNames('mb-4 text-sm text-gray-600')}>
+      <p className="mb-4 text-sm text-gray-600">
         Programmet beregner antal normalsider ved at dividere antal tegn der
         tælles med i teksten (Kan sættes i indstillinger) med {charsPerPage}.
         <br />

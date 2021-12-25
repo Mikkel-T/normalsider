@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React from 'react';
 
 export default function Link({
@@ -13,7 +12,7 @@ export default function Link({
   title: string;
 }) {
   return (
-    <p className={classNames('select-none')}>
+    <p className="select-none">
       {title}{' '}
       <div
         onClick={() => {
@@ -24,16 +23,14 @@ export default function Link({
           onChange(newState);
           localStorage.setItem('charsToCount', JSON.stringify(newState));
         }}
-        className={classNames(
-          'w-12 h-6 inline-flex items-center ml-2 rounded-full cursor-pointer transition-colors toggle',
-          { 'bg-green-400': state[name], 'bg-gray-600': !state[name] }
-        )}
+        className={`w-12 h-6 inline-flex items-center ml-2 rounded-full cursor-pointer transition-colors group
+          ${state[name] ? 'bg-green-400' : 'bg-gray-600'}
+        `}
       >
         <div
-          className={classNames(
-            'bg-white h-4 w-4 rounded-full transition-all mx-1 duration-300',
-            { 'translate-x-6': state[name] }
-          )}
+          className={`bg-white h-4 w-4 rounded-full transition-all mx-1 duration-300 group-hover:ring-8 ${
+            state[name] && 'translate-x-6'
+          }`}
         ></div>
       </div>
     </p>
