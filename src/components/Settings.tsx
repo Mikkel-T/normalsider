@@ -24,18 +24,18 @@ export default function Settings({
     <div>
       <div
         onClick={() => setSettingsOpen(!settingsOpen)}
-        className="inline-block font-bold align-middle cursor-pointer select-none"
+        className="inline-block cursor-pointer select-none align-middle font-bold"
       >
         {settingsOpen ? (
-          <ChevronDownIcon className="inline-block w-5 h-5 align-middle" />
+          <ChevronDownIcon className="inline-block h-5 w-5 align-middle" />
         ) : (
-          <ChevronRightIcon className="inline-block w-5 h-5 align-middle" />
+          <ChevronRightIcon className="inline-block h-5 w-5 align-middle" />
         )}
         Indstillinger
       </div>
       <br />
       {settingsOpen && (
-        <div className="inline-block p-1 px-7 bg-gray-100 rounded-xl">
+        <div className="inline-block rounded-xl bg-gray-100 p-1 px-7">
           <div className="my-2">
             <p className="font-semibold">
               Vælg hvilke slags tegn der skal tælles med:
@@ -63,7 +63,7 @@ export default function Settings({
               }}
               type="number"
               value={charsPerPage}
-              className="p-2 rounded-md border outline-none focus:border-gray-500"
+              className="rounded-md border p-2 outline-none focus:border-gray-500"
             />
           </div>
           <div className="my-2">
@@ -78,9 +78,9 @@ export default function Settings({
                 setCharsPerPage(1300);
                 localStorage.clear();
               }}
-              className="p-2 px-2 mt-3 text-gray-50 bg-red-600 rounded-md hover:bg-red-500 focus:bg-red-500 focus:outline-none"
+              className="mt-3 rounded-md bg-red-600 p-2 px-2 text-gray-50 hover:bg-red-500 focus:bg-red-500 focus:outline-none"
             >
-              <RefreshIcon className="inline-block mr-1 w-5 h-5" />
+              <RefreshIcon className="mr-1 inline-block h-5 w-5" />
               Nulstil indstillinger
             </button>
           </div>

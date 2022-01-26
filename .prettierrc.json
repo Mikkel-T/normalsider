@@ -1,6 +1,5 @@
 {
   "trailingComma": "es5",
   "singleQuote": true,
-  "importOrder": ["^[./]"],
-  "importOrderSeparation": true
+  "tailwindConfig": "./tailwind.config.js"
 }

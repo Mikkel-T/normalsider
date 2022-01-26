@@ -23,12 +23,12 @@ export default function Link({
           onChange(newState);
           localStorage.setItem('charsToCount', JSON.stringify(newState));
         }}
-        className={`w-12 h-6 inline-flex items-center ml-2 rounded-full cursor-pointer transition-colors group
+        className={`group ml-2 inline-flex h-6 w-12 cursor-pointer items-center rounded-full transition-colors
           ${state[name] ? 'bg-green-400' : 'bg-gray-600'}
         `}
       >
         <div
-          className={`bg-white h-4 w-4 rounded-full transition-all mx-1 duration-300 group-hover:ring-8 ${
+          className={`mx-1 h-4 w-4 rounded-full bg-white transition-all duration-300 group-hover:ring-8 ${
             state[name] && 'translate-x-6'
           }`}
         ></div>

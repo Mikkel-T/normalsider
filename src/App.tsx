@@ -36,7 +36,7 @@ function App() {
         <textarea
           onChange={(e) => setText(e.target.value)}
           value={text}
-          className="p-2 mt-5 mb-2 w-3/4 h-60 rounded-lg border border-black resize-y sm:w-2/3 md:w-1/2 focus:outline-none"
+          className="mt-5 mb-2 h-60 w-3/4 resize-y rounded-lg border border-black p-2 focus:outline-none sm:w-2/3 md:w-1/2"
           aria-label="Tekst input"
         />
         {text && <div>Antal tegn: {text.length}</div>}
@@ -59,7 +59,7 @@ function App() {
         <div>
           <button
             onClick={() => setText('')}
-            className="p-2 px-4 mt-3 text-gray-50 bg-blue-700 rounded-md hover:bg-blue-600 focus:bg-blue-600 focus:outline-none"
+            className="mt-3 rounded-md bg-blue-700 p-2 px-4 text-gray-50 hover:bg-blue-600 focus:bg-blue-600 focus:outline-none"
           >
             Ryd tekstfelt
           </button>
