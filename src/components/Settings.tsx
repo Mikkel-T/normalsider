@@ -1,8 +1,8 @@
 import {
   ChevronDownIcon,
   ChevronRightIcon,
-  RefreshIcon,
-} from '@heroicons/react/solid';
+  ArrowPathIcon,
+} from '@heroicons/react/24/solid';
 import React, { useState } from 'react';
 
 import CharsToCount from './Toggle';
@@ -80,7 +80,7 @@ export default function Settings({
               }}
               className="mt-3 rounded-md bg-red-600 p-2 px-2 text-gray-50 hover:bg-red-500 focus:bg-red-500 focus:outline-none"
             >
-              <RefreshIcon className="mr-1 inline-block h-5 w-5" />
+              <ArrowPathIcon className="mr-1 inline-block h-5 w-5" />
               Nulstil indstillinger
             </button>
           </div>

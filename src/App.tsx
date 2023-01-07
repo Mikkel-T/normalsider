@@ -1,5 +1,5 @@
-import Footer from '@components/Footer';
-import Settings from '@components/Settings';
+import Footer from './components/Footer';
+import Settings from './components/Settings';
 import React, { useEffect, useState } from 'react';
 
 function App() {
