@@ -19,12 +19,13 @@
     Indstillinger for egen definition
   </div>
   <div class="mx-auto w-fit">
-    <p>Antal tegn per normalside:</p>
+    <label for="custom-length" class="block">Antal tegn per normalside:</label>
     <input
       type="number"
       bind:value={rules.rules.length}
       min="0"
       class="mb-2 rounded-md border-2 bg-gray-100 p-1"
+      id="custom-length"
     />
   </div>
   <div
