@@ -13,7 +13,7 @@
     .rules[rule]
     ? 'border-green-400 shadow-green-300'
     : 'border-red-400 shadow-red-300'}"
-  on:click={() => (rules.rules[rule] = !rules.rules[rule])}
+  onclick={() => (rules.rules[rule] = !rules.rules[rule])}
 >
   <div class="flex flex-row justify-between">
     <span class="text-lg font-semibold">{name}</span>
