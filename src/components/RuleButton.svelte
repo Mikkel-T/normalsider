@@ -1,11 +1,15 @@
 <script lang="ts">
   import { rules } from "../lib/state.svelte";
 
-  let { name, rule, example } = $props<{
+  let {
+    name,
+    rule,
+    example,
+  }: {
     name: string;
     rule: "letters" | "numbers" | "spaces" | "symbols";
     example: string;
-  }>();
+  } = $props();
 </script>
 
 <button
