@@ -43,19 +43,29 @@ import CustomRules from "../components/CustomRules.svelte";
         Hvad er en normalside?
       </h2>
       <p>
-        En normalside fungerer som en måleenhed, der angiver det præcise antal
-        tegn på en enkelt side. Disse enheder anvendes typisk som retningslinjer
-        i forbindelse med skoleopgaver og inden for det generelle
-        uddannelsessystem. Definitionen af en normalside varierer afhængigt af
-        uddannelsesniveauet. I folkeskolen udgør en normalside 1300 bogstaver og
-        tal, mens den på gymnasiet udgør 2400 anslag inklusive mellemrum.
+        En normalside (forkortet ns) er en betegnelse for antallet af tegn på en
+        side og anvendes generelt på skoler og uddannelsesinstitutioner.
+        Normalsider benyttes i folkeskolen i forbindelse med tekstopgivelse til
+        eksamen, mens de på gymnasiet og de fleste andre
+        uddannelsesinstitutioner anvendes som retningslinjer for opgaver og
+        afleveringer.
       </p>
       <p>
-        På denne hjemmeside har du mulighed for at beregne antallet af
-        normalsider i en given tekst, med både folkeskolens og gymnasiets
+        Afhængigt af uddannelsesniveauet varierer definitionen af en normalside.
+        I folkeskolen udgør en normalside 1300 bogstaver og tal, mens den på
+        gymnasiet og de fleste andre uddannelsesinstitutioner udgør 2400 anslag
+        inklusive mellemrum. Afhængigt af uddannelsesinstitutionens
+        retningslinjer kan illustrationer, tabeller og lignende også tælle med i
+        antallet af normalsider. I folkeskolen tælles de ikke med i antallet af
+        normalsider.
+      </p>
+      <p>
+        På denne hjemmeside er der en normalside beregner, som kan hjælpe dig
+        med at optælle antallet af normalsider i en given tekst. Antal
+        normalsider bliver beregnet ud fra både folkeskolens og gymnasiets
         standard. Derudover kan du tilpasse indstillingerne efter dine egne
         behov, hvis du har brug for at anvende en alternativ definition af en
-        normalside.
+        normalside som f.eks. er bestemt af din uddannelsesinstitution.
       </p>
       <h2 class="mt-5 text-2xl font-extrabold text-purple">
         <label for="textinput"> Normalside beregner </label>
@@ -65,11 +75,28 @@ import CustomRules from "../components/CustomRules.svelte";
       <DefaultCount client:visible />
       <CustomRules client:visible />
     </main>
-    <footer class="my-5 text-center">
+    <footer class="my-6 text-center">
       <p>
         <a href="https://github.com/Mikkel-T/normalsider">Open Source</a> projekt
         lavet af <a href="https://mikkel-t.com">Mikkel Tønder</a>
       </p>
+      <div
+        class="mx-auto mt-3 flex w-fit gap-5 border-t border-black px-10 py-3"
+      >
+        <a
+          href="https://github.com/Mikkel-T/normalsider/issues/new"
+          target="_blank">Rapportér en fejl</a
+        >
+        <span>|</span>
+        <a
+          href="https://github.com/Mikkel-T/normalsider/issues/new"
+          target="_blank">Ønsk en ny funktion</a
+        >
+        <span>|</span>
+        <a href="https://matematik.mikkel-t.com" target="_blank"
+          >Matematik beregnere med noter</a
+        >
+      </div>
     </footer>
   </body>
 </html>
@@ -77,5 +104,9 @@ import CustomRules from "../components/CustomRules.svelte";
 <style>
   a {
     @apply text-purple hover:underline;
+  }
+
+  p {
+    @apply my-1;
   }
 </style>
