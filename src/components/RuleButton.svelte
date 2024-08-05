@@ -13,7 +13,7 @@
 </script>
 
 <button
-  class="m-1 w-full rounded-md border bg-gray-100 p-2 text-left shadow-md hover:bg-gray-200 {rules
+  class="group m-1 w-full rounded-md border bg-gray-100 p-2 text-left shadow-md hover:bg-gray-200 {rules
     .rules[rule]
     ? 'border-green-400 shadow-green-300'
     : 'border-red-400 shadow-red-300'}"
@@ -36,7 +36,9 @@
     </span>
   </div>
   <div class="text-sm">Eksempler på gyldige tegn:</div>
-  <div class="mx-auto w-fit bg-gray-200 p-1 text-center font-mono text-purple">
+  <div
+    class="mx-auto w-fit bg-gray-200 p-1 text-center font-mono text-purple group-hover:bg-gray-300"
+  >
     {example}
   </div>
 </button>

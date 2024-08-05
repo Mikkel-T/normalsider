@@ -12,18 +12,19 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/svelte": "^5.4.0",
+    "@astrojs/check": "^0.9.1",
+    "@astrojs/svelte": "^5.7.0",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^4.6.4",
-    "svelte": "^5.0.0-next.115",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.4.5"
+    "astro": "^4.13.1",
+    "svelte": "^5.0.0-next.208",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0",
-    "prettier-plugin-svelte": "^3.2.3",
-    "prettier-plugin-tailwindcss": "^0.5.14"
-  }
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-svelte": "^3.2.6",
+    "prettier-plugin-tailwindcss": "^0.6.5"
+  },
+  "packageManager": "yarn@4.4.0"
 }
