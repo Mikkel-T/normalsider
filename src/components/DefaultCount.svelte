@@ -19,7 +19,7 @@
         {textPages(text.text, rule.rules).toFixed(2)}
       </div>
       <div>{countText(text.text, rule.rules)} talte tegn</div>
-      <div class="mx-auto w-1/2 text-sm text-gray-800">
+      <div class="mx-auto w-1/2 text-sm text-gray-800 dark:text-gray-200">
         1 normalside: {prettyPrintRules(rule.rules)}
       </div>
     </div>

@@ -13,10 +13,10 @@
 </script>
 
 <button
-  class="group m-1 w-full rounded-md border bg-gray-100 p-2 text-left shadow-md hover:bg-gray-200 {rules
+  class="group m-1 w-full rounded-md border bg-gray-100 p-2 text-left shadow-md hover:bg-gray-200 dark:bg-zinc-800 dark:hover:bg-zinc-900 {rules
     .rules[rule]
-    ? 'border-green-400 shadow-green-300'
-    : 'border-red-400 shadow-red-300'}"
+    ? 'border-green-400 shadow-green-300 dark:border-green-600 dark:shadow-green-500'
+    : 'border-red-400 shadow-red-300 dark:border-red-600 dark:shadow-red-500'}"
   onclick={() => (rules.rules[rule] = !rules.rules[rule])}
 >
   <div class="flex flex-row justify-between">
@@ -37,7 +37,7 @@
   </div>
   <div class="text-sm">Eksempler på gyldige tegn:</div>
   <div
-    class="mx-auto w-fit bg-gray-200 p-1 text-center font-mono text-purple group-hover:bg-gray-300"
+    class="mx-auto mt-1 w-fit bg-gray-200 p-1 text-center font-mono text-purple group-hover:bg-gray-300 dark:bg-gray-400 dark:group-hover:bg-gray-300"
   >
     {example}
   </div>
