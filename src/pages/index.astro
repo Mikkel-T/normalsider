@@ -5,34 +5,53 @@ import CustomCount from "../components/CustomCount.svelte";
 import CustomRules from "../components/CustomRules.svelte";
 import ThemeToggle from "../components/ThemeToggle.svelte";
 import FileUpload from "../components/FileUpload.svelte";
+
+const title = "Normalside Beregner";
+const url = "https://normalsider.mikkel-t.com";
+const description =
+  "En hjemmeside til at beregne antal normalsider i en tekst.";
+
+const keywords = [
+  "normalside",
+  "normalside beregner",
+  "normalside omfang",
+  "normalside tegn",
+  "antal tegn normalside",
+  "normalside folkeskolen",
+  "normalside gymnasiet",
+  "normalside anslag",
+  "normalside antal tegn",
+  "normalside antal anslag",
+  "beregn normalside",
+  "beregn normalside omfang",
+  "beregn normalside tegn",
+  "beregn normalside antal tegn",
+];
 ---
 
 <!doctype html>
 <html lang="da">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="En hjemmeside til at beregne antal normalsider i en tekst."
-    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#6D28D9" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={url} />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="keywords"
-      content="normalside, normalside beregner, normalside omfang, normalside tegn, antal tegn normalside, normalside folkeskolen, normalside gymnasiet, normalside anslag, normalside antal tegn, normalside antal anslag, beregn normalside, beregn normalside omfang, beregn normalside tegn, beregn normalside antal tegn"
-    />
-    <link rel="canonical" href="https://normalsider.mikkel-t.com" />
+    <meta name="keywords" content={keywords.join(", ")} />
+
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://normalsider.mikkel-t.com" />
-    <meta property="og:title" content="Normalside Beregner" />
-    <meta
-      property="og:description"
-      content="En hjemmeside til at beregne antal normalsider i en tekst."
-    />
     <meta property="og:locale" content="da_DK" />
-    <meta property="og:site_name" content="Normalside Beregner" />
-    <title>Normalside Beregner</title>
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content={title} />
 
     <script>
       // Default theme is light
