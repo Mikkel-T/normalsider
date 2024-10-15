@@ -4,6 +4,7 @@ import DefaultCount from "../components/DefaultCount.svelte";
 import CustomCount from "../components/CustomCount.svelte";
 import CustomRules from "../components/CustomRules.svelte";
 import ThemeToggle from "../components/ThemeToggle.svelte";
+import FileUpload from "../components/FileUpload.svelte";
 ---
 
 <!doctype html>
@@ -78,10 +79,17 @@ import ThemeToggle from "../components/ThemeToggle.svelte";
         behov, hvis du har brug for at anvende en alternativ definition af en
         normalside som f.eks. er bestemt af din uddannelsesinstitution.
       </p>
+      <p>
+        Du kan også uploade en fil med tekst, som du ønsker at beregne antallet
+        af normalsider i. På nuværende tidspunkt understøttes kun .txt-filer,
+        men de fleste programmer har mulighed for at eksportere tekstfiler i
+        .txt-format. Der arbejdes på at understøtte flere filtyper i fremtiden.
+      </p>
       <h2 class="mt-5 text-2xl font-extrabold text-purple">
         <label for="textinput"> Normalside beregner </label>
       </h2>
       <Textarea client:visible />
+      <FileUpload client:visible />
       <CustomCount client:idle />
       <DefaultCount client:visible />
       <CustomRules client:visible />
