@@ -48,10 +48,10 @@
   Upload fil
 </button>
 <p class="text-center text-sm text-gray-600 dark:text-gray-400">
-  Sletter alt tekst i tekstfeltet og erstatter det med indholdet af filen
+  Sletter alt tekst i tekstfeltet og erstatter det med filens indhold
 </p>
 <p class="text-center text-sm text-gray-600 dark:text-gray-400">
-  Understøtter på lige nu kun .txt-filer
+  Understøtter på nuværende tidspunkt kun .txt-filer
 </p>
 
 <input
